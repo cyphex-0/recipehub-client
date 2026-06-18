@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
 import { FiMail, FiLock, FiEye, FiEyeOff } from 'react-icons/fi'
 import { FcGoogle } from 'react-icons/fc'
-import toast from 'react-hot-toast'
+import { toast } from 'sonner'
 import { useAuth } from '../../providers/AuthProvider'
 
 const Login = () => {
@@ -44,12 +44,11 @@ const Login = () => {
   const handleGoogle = async () => {
     setGoogleLoading(true)
     try {
+      toast.loading('Redirecting to Google...', { id: 'google-oauth' })
       await loginWithGoogle()
-      toast.success('Logged in with Google')
-      navigate(from, { replace: true })
     } catch (err) {
+      toast.dismiss('google-oauth')
       toast.error(err.message || 'Google login failed')
-    } finally {
       setGoogleLoading(false)
     }
   }

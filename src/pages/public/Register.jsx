@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
 import { FiUser, FiMail, FiLock, FiImage, FiEye, FiEyeOff } from 'react-icons/fi'
 import { FcGoogle } from 'react-icons/fc'
-import toast from 'react-hot-toast'
+import { toast } from 'sonner'
 import { useAuth } from '../../providers/AuthProvider'
 
 const Register = () => {
@@ -28,7 +28,11 @@ const Register = () => {
     setLoading(true)
     try {
       
-      await registerWithEmail(data.name, data.email, data.password, data.photoURL || '')
+      const res = await registerWithEmail(data.name, data.email, data.password, data.photoURL || '')
+      if (!res?.ok) {
+        toast.error(res?.message || 'Registration failed')
+        return
+      }
       toast.success('Account created!')
       navigate(from, { replace: true })
     } catch (err) {
@@ -41,12 +45,11 @@ const Register = () => {
   const handleGoogle = async () => {
     setGoogleLoading(true)
     try {
+      toast.loading('Redirecting to Google...', { id: 'google-oauth' })
       await loginWithGoogle()
-      toast.success('Registered with Google')
-      navigate(from, { replace: true })
     } catch (err) {
+      toast.dismiss('google-oauth')
       toast.error(err.message || 'Google sign-in failed')
-    } finally {
       setGoogleLoading(false)
     }
   }

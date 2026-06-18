@@ -4,7 +4,7 @@ import { FiMenu, FiX, FiUser, FiLogOut, FiSun, FiMoon } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAuth } from '../providers/AuthProvider'
 import { useTheme } from '../hooks/useTheme'
-import toast from 'react-hot-toast'
+import { toast } from 'sonner'
 
 const navLinks = [
   { to: '/', label: 'Home' },

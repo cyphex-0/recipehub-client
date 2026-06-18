@@ -6,7 +6,7 @@ import {
   FiClock, FiUsers, FiHeart, FiFlag, FiStar, FiArrowLeft,
   FiCheckCircle, FiShoppingCart, FiLock, FiMessageSquare,
 } from 'react-icons/fi'
-import toast from 'react-hot-toast'
+import { toast } from 'sonner'
 import Swal from 'sweetalert2'
 import api from '../../utils/api'
 import { useAuth } from '../../providers/AuthProvider'

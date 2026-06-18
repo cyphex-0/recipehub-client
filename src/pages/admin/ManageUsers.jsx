@@ -4,7 +4,7 @@ import { FiSearch, FiTrash2, FiShield, FiShieldOff, FiSlash } from 'react-icons/
 import { FaCrown } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import Swal from 'sweetalert2'
-import toast from 'react-hot-toast'
+import { toast } from 'sonner'
 import api from '../../utils/api'
 import Loader from '../../components/Loader'
 import { useAuth } from '../../providers/AuthProvider'

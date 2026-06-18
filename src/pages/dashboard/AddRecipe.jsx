@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useForm, useFieldArray } from 'react-hook-form'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { FiUpload, FiPlus, FiX, FiImage } from 'react-icons/fi'
-import toast from 'react-hot-toast'
+import { toast } from 'sonner'
 import api from '../../utils/api'
 import Loader from '../../components/Loader'
 

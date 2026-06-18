@@ -4,7 +4,7 @@ import {
   FiHome, FiBook, FiPlusCircle, FiHeart, FiShoppingBag, FiUser,
   FiUsers, FiFileText, FiFlag, FiCreditCard, FiLogOut, FiChevronLeft
 } from 'react-icons/fi'
-import toast from 'react-hot-toast'
+import { toast } from 'sonner'
 
 const DashboardLayout = () => {
   const { dbUser, logout } = useAuth()
