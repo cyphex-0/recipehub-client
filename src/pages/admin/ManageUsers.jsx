@@ -10,7 +10,7 @@ import Loader from '../../components/Loader'
 import { useAuth } from '../../providers/AuthProvider'
 
 const ManageUsers = () => {
-  const { dbUser } = useAuth()
+  const { dbUser, refreshUser } = useAuth()
   const qc = useQueryClient()
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(1)
@@ -34,7 +34,12 @@ const ManageUsers = () => {
   const togglePremium = useMutation({
     mutationFn: ({ id, isPremium }) =>
       api.patch(`/admin/users/${id}/premium`, { isPremium }),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ['admin-users'] }),
+    onSuccess: async (_, variables) => {
+      qc.invalidateQueries({ queryKey: ['admin-users'] })
+      if (variables.id === dbUser?._id) {
+        await refreshUser()
+      }
+    },
   })
 
   const toggleBlock = useMutation({
