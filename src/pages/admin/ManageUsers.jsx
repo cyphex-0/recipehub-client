@@ -113,6 +113,7 @@ const ManageUsers = () => {
             <tbody>
               {users.map((u) => {
                 const isSelf = u.email === dbUser?.email
+                const cannotModify = isSelf || u.role === 'admin'
                 return (
                   <motion.tr
                     key={u._id}
@@ -174,7 +175,7 @@ const ManageUsers = () => {
                             role: u.role === 'admin' ? 'user' : 'admin',
                           })
                         }
-                        disabled={isSelf}
+                        disabled={cannotModify}
                         className="btn btn-xs btn-ghost"
                         title={u.role === 'admin' ? 'Demote' : 'Promote'}
                       >
@@ -187,7 +188,6 @@ const ManageUsers = () => {
                             isPremium: !u.isPremium,
                           })
                         }
-                        disabled={isSelf}
                         className="btn btn-xs btn-ghost"
                         title="Toggle premium"
                       >
@@ -200,7 +200,7 @@ const ManageUsers = () => {
                             isBlocked: !u.isBlocked,
                           })
                         }
-                        disabled={isSelf}
+                        disabled={cannotModify}
                         className={`btn btn-xs btn-ghost ${u.isBlocked ? 'text-success' : 'text-error'}`}
                         title={u.isBlocked ? 'Unblock' : 'Block'}
                       >
@@ -208,7 +208,7 @@ const ManageUsers = () => {
                       </button>
                       <button
                         onClick={() => confirmDelete(u)}
-                        disabled={isSelf}
+                        disabled={cannotModify}
                         className="btn btn-xs btn-ghost text-error"
                       >
                         <FiTrash2 />
