@@ -27,7 +27,11 @@ const Login = () => {
   const onSubmit = async (data) => {
     setLoading(true)
     try {
-      await loginWithEmail(data.email, data.password)
+      const res = await loginWithEmail(data.email, data.password)
+      if (!res?.ok) {
+        toast.error(res?.message || 'Invalid email or password')
+        return
+      }
       toast.success('Welcome back!')
       navigate(from, { replace: true })
     } catch (err) {
