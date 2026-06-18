@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Modern squircle background matching the RecipeHub primary red theme -->
+  <rect width="100" height="100" rx="24" fill="#E63946"/>
+  
+  <!-- The serving cloche (dome) -->
+  <path d="M 25 65 A 25 25 0 0 1 75 65 Z" fill="#ffffff"/>
+  
+  <!-- Cloche handle -->
+  <circle cx="50" cy="36" r="6" fill="#ffffff"/>
+  
+  <!-- Cloche base plate -->
+  <rect x="18" y="67" width="64" height="6" rx="3" fill="#ffffff"/>
+</svg>
