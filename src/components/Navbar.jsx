@@ -97,7 +97,13 @@ const Navbar = () => {
               {theme === 'recipelight' ? <FiMoon /> : <FiSun />}
             </button>
 
-            {!loading && user ? (
+            {loading ? (
+              <div className="hidden md:flex items-center gap-2">
+                <div className="w-9 h-9 rounded-full bg-base-300 animate-pulse"></div>
+                <div className="w-16 h-8 rounded-lg bg-base-300 animate-pulse"></div>
+                <div className="w-20 h-8 rounded-lg bg-base-300 animate-pulse"></div>
+              </div>
+            ) : user ? (
               <div className="dropdown dropdown-end">
                 <div
                   tabIndex={0}
@@ -182,7 +188,7 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                 ))}
-                {!user && (
+                {!loading && !user && (
                   <>
                     <li>
                       <Link
@@ -204,7 +210,7 @@ const Navbar = () => {
                     </li>
                   </>
                 )}
-                {user && (
+                {!loading && user && (
                   <>
                     <li>
                       <Link

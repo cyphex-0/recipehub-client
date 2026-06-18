@@ -15,6 +15,7 @@
 
 import { createContext, useContext, useEffect, useState } from 'react'
 import { createAuthClient } from 'better-auth/react'
+import { toast } from 'sonner'
 import api from '../utils/api'
 
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000'
@@ -61,6 +62,11 @@ export default function AuthProvider({ children }) {
         if (data && data.user) {
           setUser(data.user)
           await fetchCurrentUser()
+          
+          if (sessionStorage.getItem('oauth_pending') === 'true') {
+            toast.success('Welcome back!')
+            sessionStorage.removeItem('oauth_pending')
+          }
         }
       } catch (err) {
         

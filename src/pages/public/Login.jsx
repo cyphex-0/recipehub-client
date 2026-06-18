@@ -45,6 +45,7 @@ const Login = () => {
     setGoogleLoading(true)
     try {
       toast.loading('Redirecting to Google...', { id: 'google-oauth' })
+      sessionStorage.setItem('oauth_pending', 'true')
       await loginWithGoogle()
     } catch (err) {
       toast.dismiss('google-oauth')
