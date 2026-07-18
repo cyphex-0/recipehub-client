@@ -61,7 +61,7 @@ The frontend for **RecipeHub** — a premium recipe sharing platform built with 
 5. Open your browser and visit `http://localhost:5173`.
 
 ## 🌐 Live Links & Resources
-- **Live Frontend (Vercel):** https://recipehub-client.vercel.app
+- **Live Frontend (Vercel):** https://recipehub-client-gamma.vercel.app/
 - **Backend API (Vercel):** https://recipehub-server.vercel.app
 
 ### 🔐 Admin Credentials (for graders)
