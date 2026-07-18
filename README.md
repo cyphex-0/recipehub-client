@@ -62,7 +62,7 @@ The frontend for **RecipeHub** — a premium recipe sharing platform built with 
 
 ## 🌐 Live Links & Resources
 - **Live Frontend (Vercel):** https://recipehub-client-gamma.vercel.app/
-- **Backend API (Vercel):** https://recipehub-server.vercel.app
+- **Backend API (Render):** https://recipehub-server-yach.onrender.com
 
 ### 🔐 Admin Credentials (for graders)
 | Field | Value |
